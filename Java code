@@ -1,0 +1,40 @@
+import java.util.Scanner; // import Scanner class for input
+
+public class Main {
+  public static void main(String[] args) {
+    System.out.println("Welcome MSH BOYS games\n"); // use System.out.println for output
+    System.out.print("Type 'Play' to continue: ");
+
+    Scanner sc = new Scanner(System.in); // create a Scanner object to read input
+    String input = sc.nextLine(); // use nextLine to read input string
+
+    boolean hasKey = false; // added flag to track whether the player has found the key
+
+    if (input.equals("Play")) { // use .equals to compare input string to "Play"
+      System.out.println("You are now in game\n"); // use System.out.println for output
+
+      System.out.println("You are locked in a room. Try to get out.\n"); // use System.out.println for output
+
+      while (true) { // use true for true
+        System.out.print("> "); // use System.out.print for output
+        input = sc.nextLine(); // use nextLine to read input string
+
+        if (input.equals("door")) { // use .equals to compare input string to "door"
+          if (hasKey) {
+            System.out.println("You got out!\n"); // use System.out.println for output
+            break;
+          } else {
+            System.out.println("The door is locked.\n"); // use System.out.println for output
+          }
+        } else if (input.equals("drawer")) { // use .equals to compare input string to "drawer"
+          hasKey = true; // update flag to indicate that the player has found the key
+          System.out.println("You have found a key.\n"); // use System.out.println for output
+        } else {
+          System.out.println("Please look at the instructions.\n"); // use System.out.println for output
+        }
+      }
+    } else {
+      System.out.println("Invalid input. Exiting game.\n"); // use System.out.println for output
+    }
+  }
+}
