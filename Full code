@@ -1,0 +1,41 @@
+#include <stdio.h> // include stdio.h for printf and scanf
+#include <string.h> // include string.h for strcmp
+
+int main() {
+  printf("Welcome MSH BOYS games\n\n"); // use printf for output
+  printf("Type 'Play' to continue: ");
+
+  char input[10]; // use char array to store input string
+  scanf("%s", input); // use scanf to read input string
+
+  int hasKey = 0; // added flag to track whether the player has found the key
+
+  if (strcmp(input, "Play") == 0) { // use strcmp to compare input string to "Play"
+    printf("You are now in game\n"); // use printf for output
+
+    printf("You are locked in a room. Try to get out.\n"); // use printf for output
+
+    while (1) { // use 1 for true instead of true
+      printf("> "); // use printf for output
+      scanf("%s", input); // use scanf to read input string
+
+      if (strcmp(input, "door") == 0) { // use strcmp to compare input string to "door"
+        if (hasKey) {
+          printf("You got out!\n"); // use printf for output
+          break;
+        } else {
+          printf("The door is locked.\n"); // use printf for output
+        }
+      } else if (strcmp(input, "drawer") == 0) { // use strcmp to compare input string to "drawer"
+        hasKey = 1; // update flag to indicate that the player has found the key
+        printf("You have found a key.\n"); // use printf for output
+      } else {
+        printf("Please look at the instructions.\n"); // use printf for output
+      }
+    }
+  } else {
+    printf("Invalid input. Exiting game.\n"); // use printf for output
+  }
+
+  return 0;
+}
