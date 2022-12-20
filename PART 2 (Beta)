@@ -1,49 +1,49 @@
-#include <stdio.h> // include stdio.h for printf and scanf
-#include <string.h> // include string.h for strcmp
+#include <stdio.h>
+#include <string.h>
 
 int main() {
-  printf("Welcome to Part 2 of MSH BOYS games\n\n"); // use printf for output
+  printf("Welcome to Part 2 of MSH BOYS games\n\n");
   printf("Type 'Play' to continue: ");
 
-  char input[10]; // use char array to store input string
-  scanf("%s", input); // use scanf to read input string
+  char a[10];
+  scanf("%s", a);
 
-  int hasKey = 0; // added flag to track whether the player has found the key
-  int hasMap = 0; // added flag to track whether the player has found the map
+  int b = 0;
+  int c = 0;
 
-  if (strcmp(input, "Play") == 0) { // use strcmp to compare input string to "Play"
-    printf("You are now in game\n"); // use printf for output
+  if (strcmp(a, "Play") == 0) {
+    printf("You are now in game\n");
 
-    printf("You are lost in a maze. Try to find your way out.\n"); // use printf for output
+    printf("You are lost in a maze. Try to find your way out.\n");
 
-    while (1) { // use 1 for true instead of true
-      printf("> "); // use printf for output
-      scanf("%s", input); // use scanf to read input string
+    while (1) {
+      printf("> ");
+      scanf("%s", a);
 
-      if (strcmp(input, "north") == 0 || strcmp(input, "south") == 0 || strcmp(input, "east") == 0 || strcmp(input, "west") == 0) { // use strcmp to compare input string to "north", "south", "east", or "west"
-        if (hasMap) {
-          printf("You use the map to navigate through the maze.\n"); // use printf for output
+      if (strcmp(a, "north") == 0 || strcmp(a, "south") == 0 || strcmp(a, "east") == 0 || strcmp(a, "west") == 0) {
+        if (c) {
+          printf("You use the map to navigate through the maze.\n");
           printf("You reach the end of the maze! Congratulations!\n");
           break;
         } else {
-          printf("You wander aimlessly through the maze.\n"); // use printf for output
+          printf("You wander aimlessly through the maze.\n");
         }
-      } else if (strcmp(input, "chest") == 0) { // use strcmp to compare input string to "chest"
-        if (hasKey) {
-          printf("You unlock the chest and find a map inside!\n"); // use printf for output
-          hasMap = 1; // update flag to indicate that the player has found the map
+      } else if (strcmp(a, "chest") == 0) {
+        if (b) {
+          printf("You unlock the chest and find a map inside!\n");
+          c = 1;
         } else {
-          printf("The chest is locked.\n"); // use printf for output
+          printf("The chest is locked.\n");
         }
-      } else if (strcmp(input, "key") == 0) { // use strcmp to compare input string to "key"
-        hasKey = 1; // update flag to indicate that the player has found the key
-        printf("You have found a key.\n"); // use printf for output
+      } else if (strcmp(a, "key") == 0) {
+        b = 1;
+        printf("You have found a key.\n");
       } else {
-        printf("Please look at the instructions.\n"); // use printf for output
+        printf("Please look at the instructions.\n");
       }
     }
   } else {
-    printf("Invalid input. Exiting game.\n"); // use printf for output
+    printf("Invalid input. Exiting game.\n");
   }
 
   return 0;
